@@ -1,1 +1,415 @@
-/* You can add global styles to this file, and also import other style files */
+@charset "UTF-8";
+/* Global Styles */
+* {margin: 0px;padding: 0px; outline: none;box-shadow: none;border: 0;}
+body { margin:0px;padding:0px;font-family: 'Lato', sans-serif; background-color: #f8f8f8;}
+button {outline: none;cursor:pointer;transition: all 0.3s ease 0s; -webkit-transition: all 0.3s ease 0s; -moz-transition: all 0.3s ease 0s;
+   -ms-transition: all 0.3s ease 0s;}
+button:focus {outline: none;}
+a { text-decoration:none; outline: none;transition: all 0.3s ease 0s;-webkit-transition: all 0.3s ease 0s; -moz-transition: all 0.3s ease 0s;
+   -ms-transition: all 0.3s ease 0s;}
+a:focus {outline:none;}
+h1, h2, h3, h4, h5, h6, p, label {margin: 0px;padding: 0px;line-height: normal;}
+.relative {position: relative;}
+.section-heading {font-size: 17px;line-height: 16px;}
+.divider {color: #000000;opacity: 0.07;}
+.text-btn {font-size: 11px;text-decoration: none;}
+
+.line-button:hover, .line-button:focus {text-decoration: none;color: #02AAE8;}
+.text-btn:hover, .text-btn:focus {text-decoration: none;color: #02AAE8;}
+.weight-600 { font-weight: 600;}
+.normal {font-weight: normal;}
+.relative {position: relative;}
+.mr-10 {margin-right: 10px;}
+.circle {border-radius: 100%;overflow: hidden;}
+.pr-16 {padding-right:16px;}
+.padding-lr-10 {padding-left:5px; padding-right:5px;}
+.padding-0 {padding: 0px;}
+.x-hidden {overflow-x: hidden;}
+.no-padding-left {padding-left:0;}
+.no-padding-right {padding-right: 0;}
+.btn-green {background-color: #8DC63E;}
+.filled-btn {padding: 11px 17px;line-height: 1;color: #ffffff;border-radius: 50px;font-size: 14px;align-items: center;font-weight: normal;}
+span.btn-icon {margin-right: 8px;width: 14px;}
+/* colors */
+.title-gray {color: #959595;}
+.title-inline {display: inline-block;}
+.primary-color {color :#333333;}
+.light-color {color: #b5b5b5;}
+.text-light-counter {color: #B5B5B5;}
+.bg-yellow {background-color: #f3b113;}
+.bg-green {background-color: #8dc63e;}
+.bg-blue {background-color: #02aae8;}
+.bg-red {background-color: #f95b64;}
+
+/* My Tasks Section */
+.styled-container {background-color: #ffffff;box-shadow: 0px 0px 7px rgba(0,0,0,0.05); border-radius: 4px;}
+/* Header */
+.tasks-header {display: flex; justify-content: space-between;margin: 20px 0;}
+.tasks-header h2, .tasks-header span, .tasks-header a, .tasks-header div, .tasks-header button {display: inline-block;}
+.my-tasks {padding: 20px;} 
+.tasks-header .align-left {line-height: 36px;}
+.tasks-counter {font-size: 13px;display: inline-block;}
+.search-box {border: 1px solid #F2F2F2; padding: 10px 10px 10px 37px;font-size: 13px;line-height: 1;border-radius: 30px;color: #C0C0C0;width: 222px;}
+.search-box .text-input { width: 100%; padding-right: 5px;}
+.small-btn {background-color: #02AAE8; width: 32px;height: 32px;padding: 10px;line-height: 1;}
+.search-box img {position: absolute;left: 10px;top: 10px;}
+.small-btn img { margin: 0px auto;line-height: 1;display: block;}
+/* Headings Inline */
+.title-data {padding-right: 15px;}
+.project-width {width: 150px;}
+.task-width {width: 280px;}
+.assigned-width {width: 200px;}
+.deadline-width {width: 170px;}
+.status-width {width: 120px;}
+.modified-width {width: 110px;}
+.action-width { width: 90px;padding: 0;}
+.box-titles {display: flex;justify-content: space-between;margin: 10px 0px 15px 0px;}
+.title-inline h5 {font-size: 12px;margin: 0;font-weight: normal;}
+
+/* Breadcrum */
+.dropdown-toggle::after {
+    display: inline-block;
+    margin-left: .255em;
+    vertical-align: .255em;
+    content: "";
+    border-top: .3em solid;
+    border-right: .3em solid transparent;
+    border-bottom: 0;
+    border-left: .3em solid transparent;
+    border: 0;
+   // background-image: url(../images/chev-down-white.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 6px;
+    width: 9px;
+}
+
+.breadcrum-area nav {
+    margin: 0;
+    background-color: transparent;
+}
+.breadcrum-area nav ol.breadcrumb {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+}
+.breadcrum-area nav ol.breadcrumb li.breadcrumb-item {
+    font-size: 14px;
+}
+.page-title {
+    font-size: 24px;
+    font-weight: normal;
+}
+.includes-breadcrum {
+    margin-top: 90px;
+}
+.dropdown-toggle::after {
+    margin-left: 8px;
+    margin-top: -2px;
+    vertical-align: middle;
+}
+span.btn-icon img {
+    width: 12px;
+}
+.btn-dropdown .dropdown-menu {
+    right: 0;
+    left: auto !important;
+    top: 36px !important;
+    transform: none !important;
+}
+.includes-breadcrum .row {
+    align-items: center;
+}
+
+
+/* My Tasks */
+.list-container::-webkit-scrollbar {width: 5px;}
+.list-container::-webkit-scrollbar-track { box-shadow: inset 0 0 6px rgba(0,0,0,0); -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);}
+.list-container::-webkit-scrollbar-thumb { background-color: #f5f5f5; outline: none;}
+.list-container {max-height: 440px;overflow: hidden;overflow-y: scroll;padding-right:10px;padding-bottom:10px;}
+.box-listing {display: flex;justify-content: space-between; text-align: left;border-top: 1px solid #F2F2F2;padding: 12px 0; align-items: center;}
+.project-title {font-size: 14px;}
+.task-description {font-size: 13px;}
+.user-image-small { width: 32px; height: 32px; text-align: center; margin-right: 8px;}
+.user-image-small img {  max-width: 40px; margin: 0px auto;}
+.user-list span {display: inline-block;line-height: normal;vertical-align: middle;font-size: 13px;}
+.user-list span.user-name-inlist::after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 18px;
+    top: 0;
+    right: -15px;
+    //background-image: url(../images/chev-down.svg);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.progress-lable {font-size: 12px;}
+.title-data .progress {width: 144px;height: 3px;border-radius: 1.5px;margin-top: 3px;}
+.status-indic {font-size: 10px;padding: 5px 10px;line-height: 1;margin: 0;border-radius: 20px;color: #ffffff;}
+.modified-time {font-size: 13px;font-weight: normal;}
+.actions button {margin: 0px 15px 0 0;background-color: transparent;}
+button.detail {margin: 0;}
+.no-boxshadow {box-shadow: none !important;}
+/* Team Leads Section */
+
+/* Leads Header */
+
+.leads-header { display: flex;justify-content: space-between;margin: 20px 0;}
+.leads-header h2, .leads-header span, .leads-header a, .leads-header div, .leads-header button {
+    display: inline-block;
+}
+
+/* Leads Listing */
+.team-leads {
+    margin-bottom: 20px;
+}
+.lead-box {
+    padding: 25px 25px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0px 0px 7px rgba(0,0,0,0.05);
+}
+.lead-pic{
+    display: block;
+    width: 108px;
+    height: 108px;
+    margin: 0px auto 10px;    
+}
+.lead-profile-pic {
+    border-radius: 100%;
+    border: 1px solid #ececec;
+    display: block;
+}
+.lead-pic .availability {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    box-shadow: 0 0 0 10px rgba(255,255,255,1);
+}
+.lead-designation span {
+    display: block;
+    text-align: center;
+}
+.lead-name {font-size: 16px;}
+.designation {
+    font-size: 13px;
+    margin-top: 4px;
+}
+.slick-list .slick-slide > div {
+    padding-left: 15px;
+}
+.slick-list .slick-slide:first-child > div {
+    padding-left: 0;
+}
+.line-button {
+    padding: 8px 16px;
+    font-size: 14px;
+    text-transform: capitalize;
+    color: #333333;
+    border: 1px solid #e3e3e3;
+    border-radius: 40px;
+    margin: 15px auto 0;
+    display: block;
+    line-height: normal;
+    max-width: 110px;
+}
+.line-button span {
+    display: inline-block;
+    line-height: 1;
+    vertical-align: middle;
+}
+.line-button span img.chev-right {margin-left:10px;}
+.leads-listed ul.slick-dots {display: none !important;}
+.leads-listed .slick-slider {
+    position: static;
+}
+.leads-listed .slick-arrow {
+    position: absolute;
+    top: 50%;    
+    width: 68px;
+    height: 68px;
+    border-radius: 100%;
+    font-size: 0;
+    box-shadow: 0px 0px 7px rgba(0,0,0,0.05);
+    margin-top: -34px;
+    z-index: 8888;
+}
+.leads-listed .slick-prev.slick-arrow {
+    left: -48px;
+    right: auto;
+   // background-image: url(../images/arrow-left.svg);
+    background-repeat: no-repeat;
+    background-size: 8px;
+    background-position: 44px center;
+}
+.leads-listed .slick-next.slick-arrow {
+    right: -48px;left: auto;
+   // background-image: url("../images/arrow-right.svg");
+    background-repeat: no-repeat;
+    background-size: 8px;
+    background-position: 16px center;
+}
+.slick-arrow.slick-disabled {
+    opacity: 0;
+    cursor: initial;
+}
+
+/* Top Quick Cards Section */
+
+.top-cards {
+    margin-top: 40px;
+}
+.quick-card-outer:first-child {
+    padding-left: 0;
+}
+.quick-card-outer {
+    padding-left: 7.5px;
+    padding-right: 7.5px;
+}
+.quick-card-outer:last-child {padding-right: 0;}
+.quick-card {
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    box-shadow: 0px 0px 7px rgba(0,0,0,0.05);
+    padding: 24px;
+}
+.quick-card .card-image {
+    position: absolute;
+    top: 31px;
+    left: 24px;
+}
+.quick-card .card-text {
+    padding-left: 48px;
+}
+.quick-card .card-text .card-counter {
+    font-size: 26px;
+    font-weight: bold;
+    line-height: 1;
+}
+.quick-card .card-text span {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1;
+}
+
+
+/* Login Page */
+.logo-box {
+    margin-bottom: 40px;
+}
+.login-text h2 {
+    font-size: 30px;
+    font-weight: normal;
+    line-height: 18px;
+}
+.login-text p {font-weight: normal;font-size: 14px;line-height: 20px;margin-bottom: 25px;margin-top: 20px;}
+.login-inputs input,
+.login-inputs label,
+.login-inputs textarea {
+	transition: all .2s;
+	-webkit-transition: all .2s;
+	-moz-transition: all .2s;
+	-ms-transition: all .2s;
+	touch-action: manipulation
+}
+.login-inputs input, .login-inputs textarea {
+    font-size: 14px;
+    border: 1px solid transparent;
+    font-family: inherit;
+    -webkit-appearance: none;
+    border-radius: 4px;
+    padding: 6px 15px;
+    cursor: text;
+    line-height: normal;
+    background-color: #F4F4F4;
+}
+.login-inputs input:focus,
+.login-inputs textarea:focus {
+	outline: 0;
+    border: 1px solid #ECECEC;
+    background-color: #ffffff;
+}
+.login-inputs label {
+	letter-spacing: .05em
+}
+.login-inputs input:placeholder-shown+label,
+.login-inputs textarea:placeholder-shown+label {
+	cursor: text;
+	max-width: 66.66%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	transform-origin: left bottom;
+	transform: translate(0, 2.125rem) scale(1);
+	position: absolute;
+	top: -13px;
+	font-size: 14px;
+	text-transform: capitalize;
+	font-weight: normal;
+	color: #959595;
+	left: 54px;
+	padding: 0px;
+	background-color: transparent;
+}
+::-webkit-input-placeholder,
+::-webkit-textarea-placeholder {
+	opacity: 0;
+	transition: inherit
+}
+.login-inputs input:focus::-webkit-input-placeholder,
+.login-inputs textarea:focus::-webkit-input-placeholder {
+	opacity: 1
+}
+.login-inputs input:focus+label, .login-inputs input:not(:placeholder-shown)+label, .login-inputs textarea:focus+label, .login-inputs textarea:not(:placeholder-shown)+label {
+    transform: translate(0, 0) scale(1);
+    cursor: pointer;
+    top: 12px;
+    font-size: 14px;
+    position: absolute;
+    left: 54px;
+    padding: 0px;
+    color: #959595;
+    background-color: transparent;
+}
+.message-field {
+	margin-top: 20px
+}
+.login-form .field input {
+    width: 100%;
+    height: 60px;
+    padding-top: 25px;
+    padding-left: 54px;
+}
+.login-form .field input#email {
+  //  background-image: url(../images/email-address.svg);
+    background-repeat: no-repeat;
+    background-position: 20px center;
+    background-size: 20px;
+}
+.login-form .field input#password {
+  //  background-image: url(../images/password.svg);
+    background-repeat: no-repeat;
+    background-position: 23px center;
+    background-size: 15px;
+}
+.forgot-link {
+    margin: 20px 0;
+}
+a.forgot-password {font-size: 14px; font-weight: normal; line-height: normal; text-decoration: none;}
+a.forgot-password:hover, a.forgot-password:focus {color: #02aae8;}
+.login-btn .btn-style {
+    font-size: 14px;
+    color: #ffffff;
+    padding: 10px 40px 10px 20px;
+    background-color: #02AAE8;
+    border-radius: 30px;
+    //background-image: url(../assets/images/arrow-white.svg);
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+    background-size: 14px;
+}

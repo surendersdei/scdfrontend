@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+    <!-- Title -->
+    <title>SCD | Dashboard </title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400,700,700i,900&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+  </head>
+  <body>
+    <div class="container-fluid x-hidden">
+      
+  
+
+
+
+      <section class="my-tasks" id="alltasks">
+        <div class="container styled-container">
+          
+          <div class="row">
+            <div class="col-lg-12 section-top">
+              <div class="tasks-header">
+
+                <div class="align-left">
+                  <h2 class="primary-color section-heading normal">My Tasks <span class="tasks-counter text-light-counter">(15)</span></h2>
+                  <span class="divider">|</span>
+                  <a class="text-btn normal primary-color" href="#">View All</a>
+                </div>
+
+                <div class="align-right">
+                  <div class="search-box relative mr-10">
+                    <!-- <img class="mr-10" src="images/search.svg" alt="search-ico"> -->
+                    <input class="text-input" type="text" placeholder="Search...">
+                  </div>
+                  <button class="small-btn circle" (click)="openModal(template)" ><img src="../assets/images/add.svg" alt="add-ico"></button>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col-lg-12 hidden-md">
+              <div class="box-titles text-left pr-16">
+                <div class="title-inline project-width">
+                  <h5 class="text-uppercase title-gray">Project</h5>
+                </div>
+                <div class="title-inline task-width">
+                  <h5 class="text-uppercase title-gray">Task</h5>
+                </div>
+                <div class="title-inline assigned-width">
+                  <h5 class="text-uppercase title-gray">Assigned To</h5>
+                </div>
+                <div class="title-inline deadline-width">
+                  <h5 class="text-uppercase title-gray">Deadline</h5>
+                </div>
+                <div class="title-inline status-width">
+                  <h5 class="text-uppercase title-gray">Status</h5>
+                </div>
+                <div class="title-inline modified-width">
+                  <h5 class="text-uppercase title-gray">Modified</h5>
+                </div>
+                <div class="title-inline action-width">
+                  <h5 class="text-uppercase title-gray">Action</h5>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-12">
+              <!-- List Container Starts -->
+              <div class="list-container" >
+                <div class="box-listing" *ngFor="let item of items" >
+                  <div class="title-data project-width ">
+                    <p class="primary-color project-title">{{item.projectName}}</p>
+                  </div>
+                  <div class="title-data task-width">
+                    <p class="task-description title-gray">{{item.taskDetail}}</p>
+                  </div>
+                  <div class="title-data assigned-width">
+                    <div class="user-list">
+                      <span class="user-image-small circle">
+                        <img src="../assets/images/user-image-small.jpg" alt="user">
+                      </span>
+                      <span class="user-name-inlist relative">{{item.assignedTo}}</span>
+                    </div>
+                  </div>
+                  <div class="title-data deadline-width">
+                    <label class="progress-lable title-gray">{{item.deliverOn}}</label>
+                    <div class="progress">
+                      <div class="progress-bar bg-yellow" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div>
+                  <div class="title-data status-width">
+                    <span class="status-indic bg-yellow">In Progress</span>
+                  </div>
+                  <div class="title-data modified-width"><p class="modified-time title-gray">3 days ago</p></div>
+                  <div class="title-data action-width">
+                    <div class="actions">
+                      <button class="delete" (click)="deleteTask(item._id)"  data-toggle="tooltip" data-placement="top" title="Delete" >
+                        <img src="../assets/images/delete.svg" alt="delete">
+                      </button>
+                      <button class="edit" data-toggle="tooltip" data-placement="top" title="Edit">
+                        <img src="../assets/images/edit.svg" alt="edit">
+                      </button>
+                      <button class="detail" data-toggle="tooltip" data-placement="top" title="Details">
+                        <img src="../assets/images/detail.svg" alt="detail">
+                      </button>
+                    </div>
+                  </div>
+  
+                </div>
+               
+              </div>
+              <!-- List Container Ends -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Add Task</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    
+    <form  [formGroup]="profileForm"  (ngSubmit)="createTask()" >
+
+      <div class="form-group">
+        <label >Project Name</label>
+        <input type="text" class="form-control" formControlName="projectName" placeholder="Enter Project name">
+      </div>
+
+      <div class="form-group">
+        <label >Task Detail</label>
+        <textarea class="form-control" formControlName="taskDetail" placeholder="Enter task detail"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label >Assigned To </label>
+        <input type="text" class="form-control" formControlName="assignedTo" placeholder="Assigned to">
+      </div>
+
+      <div class="form-group">
+        <label >Deliver On</label>
+        <input type="text" class="form-control" formControlName="deliverOn" placeholder="DD/MM/YYYY">
+      </div>      
+
+      <button type="submit" class="btn btn-primary" [disabled]="!profileForm.valid"  >Submit</button>
+    </form>
+
+  </div>
+</ng-template>
+
+
+
+
+  </body>
+</html>
